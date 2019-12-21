@@ -11,9 +11,12 @@
 #svakog fajla. Argument "br_ispitanika" se odnosi na broj koji ide posle niza slova.
 #Argument "ekstenzija" se odnosi na tip fajla u kom se nalaze podaci. Za sad se mogu
 #uneti samo .csv i .txt, sto pokriva default ispise iz dva programa koje cesto koristimo
-#MATLAB i OpenSesame. Argument "ima_header" je jasan. Tajni argument ".dbg" sam koristio
-#pri konstruisanju programa i moze se koristiti pri dodavanju funkcionalnosti funkciji.
-#Poslednja dva argumenta se u opstem slucaju daju ignorisati.
+#MATLAB i OpenSesame. Argument "subject_kolona" pita da li da doda kolonu subject, gde ce
+#stajati broj ispitanika, procitan iz imena fajla. Tako ce npr. fajl VLD74.csv dobiti
+#vrednost 74 u koloni subject. Argument "ima_header" je jasan. Tajni argument ".dbg" sam
+#koristio pri konstruisanju programa i moze se koristiti pri dodavanju funkcionalnosti
+#funkciji. Poslednja dva argumenta se u opstem slucaju mogu ignorisati.
+#
 #PRIMER: u folderu imam fajlove: VLD1.csv, VLD2.csv, VLD3.csv . . . VLD70.csv
 #        onda bi funkcija glasila:
 #        moji_podaci <- merge(ime="VLD", br_ispitanika=1:70, ekstenzija=".csv")
