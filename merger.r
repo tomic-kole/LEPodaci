@@ -16,8 +16,9 @@
 #Poslednja dva argumenta se u opstem slucaju daju ignorisati.
 #PRIMER: u folderu imam fajlove: VLD1.csv, VLD2.csv, VLD3.csv . . . VLD70.csv
 #        onda bi funkcija glasila:
-#         moji_podaci <- merge(ime="VLD", br_ispitanika=1:70, ekstenzija=".csv")
-merge<- function (ime = "", br_ispitanika, ekstenzija=c(".txt", ".csv"), ima_header=T, .dbg=F)
+#        moji_podaci <- merge(ime="VLD", br_ispitanika=1:70, ekstenzija=".csv")
+
+merge<- function (ime = "", br_ispitanika, ekstenzija=c(".txt", ".csv"), subject_kolona = T, ima_header=T, .dbg=F)
 {
 imn=.imena_fajlova(ime, br_ispitanika, ekstenzija)
 podaci=data.frame()
@@ -28,7 +29,7 @@ if(ekstenzija==".txt")
 {dlm=","} else {print("podržane ekstenzije .csv i .txt")}
 
 ovaj<-read.delim(imn[i], header = ima_header, sep = dlm)
-ovaj$subject<- rep(br_ispitanika[i], NROW(ovaj))
+if(subject_kolona){ovaj$subject<- rep(br_ispitanika[i], NROW(ovaj))}
 podaci=rbind(podaci, ovaj)
 }
 return(podaci)
