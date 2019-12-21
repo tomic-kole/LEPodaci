@@ -14,6 +14,9 @@
 #MATLAB i OpenSesame. Argument "ima_header" je jasan. Tajni argument ".dbg" sam koristio
 #pri konstruisanju programa i moze se koristiti pri dodavanju funkcionalnosti funkciji.
 #Poslednja dva argumenta se u opstem slucaju daju ignorisati.
+#PRIMER: u folderu imam fajlove: VLD1.csv, VLD2.csv, VLD3.csv . . . VLD70.csv
+#        onda bi funkcija glasila:
+#         moji_podaci <- merge(ime="VLD", br_ispitanika=1:70, ekstenzija=".csv")
 merge<- function (ime = "", br_ispitanika, ekstenzija=c(".txt", ".csv"), ima_header=T, .dbg=F)
 {
 imn=.imena_fajlova(ime, br_ispitanika, ekstenzija)
